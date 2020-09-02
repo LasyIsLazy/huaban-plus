@@ -1,0 +1,34 @@
+{
+  "name": "HuaBan Plus",
+  "version": "0.1",
+  "description": "HuaBan Plus",
+  "manifest_version": 2,
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": false
+  },
+  "page_action": {
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "storage",
+    "declarativeContent",
+    "downloads"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://huaban.com/*"
+      ],
+      "js": [
+        "content-script.js"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    "inject.js"
+  ]
+}
