@@ -1,21 +1,55 @@
 <!DOCTYPE >
 <html lang="zh-cn">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <head>
-        <style>
-            body {
-                width: 500px;
-                min-height: 100px;
-            }
-            button {
-                height: 30px;
-                outline: none;
-            }
-        </style>
-    </head>
-    <body>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <head>
+    <style>
+      body {
+        width: 500px;
+        min-height: 100px;
+      }
+      button {
+        outline: none;
+        height: 40px;
+        border-width: 0px;
+        border-radius: 3px;
+        background: #1e90ff;
+        cursor: pointer;
+        outline: none;
+        color: white;
+        font-size: 17px;
+        padding: 0 20px;
+      }
+      button:hover {
+        /* 鼠标移入按钮范围时改变颜色 */
+        background: #5599ff;
+      }
+      .container {
+        display: flex;
+        justify-content: space-around;
+      }
+      .container > div {
+        flex: 0 1 240px;
+      }
+      .display-area {
+        border: 1px dotted black;
+        min-height: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>花瓣 Plus</h1>
+    <div class="container">
+      <div class="info-container">
+        <button id="getInfo">获取画板信息</button>
+        <div class="display-area" id="info">暂未获取画板信息</div>
+      </div>
+      <div class="download-container">
         <button id="btn">下载当前画板所有图片</button>
-        <div id="hint"></div>
-        <script src="popup.js"></script>
-    </body>
+        <div class="display-area" id="downloadLog">
+          <h2>日志</h2>
+        </div>
+      </div>
+    </div>
+    <script src="popup.js"></script>
+  </body>
 </html>
