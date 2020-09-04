@@ -4,31 +4,24 @@
   "description": "HuaBan Plus",
   "manifest_version": 2,
   "background": {
-    "scripts": [
-      "background.js"
-    ],
+    "scripts": ["background.js"],
     "persistent": false
   },
   "page_action": {
     "default_popup": "popup.html"
   },
-  "permissions": [
-    "storage",
-    "declarativeContent",
-    "downloads"
-  ],
+  "permissions": ["storage", "declarativeContent", "downloads"],
   "content_scripts": [
     {
-      "matches": [
-        "https://huaban.com/*"
-      ],
-      "js": [
-        "content-script.js"
-      ],
+      "matches": ["https://huaban.com/*"],
+      "js": ["content-script.js"],
       "run_at": "document_start"
     }
   ],
-  "web_accessible_resources": [
-    "inject.js"
-  ]
+  "web_accessible_resources": ["inject.js"],
+  "icons": {
+    "16": "huaban-plus.png",
+    "48": "huaban-plus.png",
+    "128": "huaban-plus.png"
+  }
 }
