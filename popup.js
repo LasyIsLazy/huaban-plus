@@ -1,3 +1,5 @@
+import { sendMessageToContentScript } from './common.js'
+
 document.getElementById('btn').addEventListener('click', () => {
   sendMessageToContentScript({ cmd: 'GET_ALL_PINS' }, function (response) {
     console.log('res', response)
@@ -55,22 +57,6 @@ function saveStrToFile(str, filename = 'file.txt') {
   })
 }
 
-// 向content-script主动发送消息
-function sendMessageToContentScript(message, callback) {
-  console.log('后台 => content-script', message)
-  getCurrentTabId((tabId) => {
-    chrome.tabs.sendMessage(tabId, message, function (response) {
-      if (callback) callback(response)
-    })
-  })
-}
-
-// 获取当前选项卡ID
-function getCurrentTabId(callback) {
-  chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-    if (callback) callback(tabs.length ? tabs[0].id : null)
-  })
-}
 
 // 监听来自content-script的消息
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
